@@ -54,7 +54,7 @@ def main(uri):
       
     except (ConnectionRefusedError, r.exceptions.Timeout, r.exceptions.ConnectionError):
       print("%s%s Can't be bruteforced" % (Fore.RED, uri))
-    #except Exception:
+    #except:
     #  pass
       
 def banner():
